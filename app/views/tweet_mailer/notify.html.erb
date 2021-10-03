@@ -10,38 +10,11 @@
     </p>
     <p>
       <%= @tweet.message %>
-      <% if @tweet.image.attached? %>
-        <%= image_tag url_for(@tweet.image) %>
-      <% end %>
     </p>
+      <% if @tweet.image.attached? %>
+        <%= image_tag url_for(@tweet.image), :style => "max-width: 500px"  %>
+      <% end %>
     <p>Thanks for joining and have a great day!</p>
-    <p>Testing:</p>
-    
-    <% if @tweet.image.attached? %>
-      <p>Tweet has image.</p>
-        <%= image_tag url_for(@tweet.image) %>
-        <p>@tweet.image <% @tweet.image %></p>
-        <p>@tweet.image.attached? <% @tweet.image.attached? %></p>
-        <p>url_for(@tweet.image) <% url_for(@tweet.image) %></p>
-        <img src="<% url_for(@tweet.image) %>">
-        
-    <% end %>
-    <% if @tweet.image.attached? %>
-        test @tweet.image <% url_for(@tweet.image) %>
-        <br>
-        test2: <%= polymorphic_url(@tweet.image) %>
-        <br>
-        test3: <%= image_tag polymorphic_url(@tweet.image) %>
-      <% else %>
-        @tweet.image nil
-    <% end %>
-    <br>
-    <% if @tweet.image.attached? %>
-      test6: <br>
-      <%= rails_blob_url(@tweet.image) %>
-      <br>
-      test7: <br>
-      <%= url_for(@tweet.image) %>
-    <% end %>
+
   </body>
 </html>
